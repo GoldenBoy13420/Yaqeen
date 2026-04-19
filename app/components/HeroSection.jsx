@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const cardsData = [
@@ -6,6 +7,7 @@ export default function HeroSection() {
       id: 1,
       title: 'القرآن الكريم',
       desc: 'تلاوة، استماع، ودراسة كتاب الله مع خيارات متعددة للقراء والتفاسير المعتمدة.',
+      href: '/quran',
       wrapperClass: 'bg-teal-50/40 border-teal-600 hover:shadow-teal-100',
       iconBg: 'bg-teal-800',
       icon: (
@@ -18,6 +20,7 @@ export default function HeroSection() {
       id: 2,
       title: 'التفسير',
       desc: 'غص في معاني الآيات من خلال أبرز كتب التفسير المعتمدة بأسلوب ميسر.',
+      href: '/tafsir',
       wrapperClass: 'bg-amber-50/40 border-amber-600 hover:shadow-amber-100',
       iconBg: 'bg-amber-700',
       icon: (
@@ -30,6 +33,7 @@ export default function HeroSection() {
       id: 3,
       title: 'الحديث الشريف',
       desc: 'موسوعة شاملة للأحاديث النبوية الصحيحة من المصادر الموثوقة.',
+      href: '/hadith',
       wrapperClass: 'bg-blue-50/50 border-blue-500 hover:shadow-blue-100',
       iconBg: 'bg-blue-300',
       icon: (
@@ -42,6 +46,7 @@ export default function HeroSection() {
       id: 4,
       title: 'شرح الأحاديث',
       desc: 'شروحات وافية ومبسطة للأحاديث النبوية لتسهيل فهم السنة وتطبيقها.',
+      href: '/hadith-explanation',
       wrapperClass: 'bg-indigo-50/50 border-indigo-500 hover:shadow-indigo-100',
       iconBg: 'bg-indigo-600',
       icon: (
@@ -54,6 +59,7 @@ export default function HeroSection() {
       id: 5,
       title: 'الأذكار والأدعية',
       desc: 'حصن المسلم اليومي من الأذكار والأدعية المأثورة بتصميم يسهل القراءة.',
+      href: '/adhkar',
       wrapperClass: 'bg-emerald-50/50 border-emerald-600 hover:shadow-emerald-100',
       iconBg: 'bg-emerald-800',
       icon: (
@@ -66,6 +72,7 @@ export default function HeroSection() {
       id: 6,
       title: 'المعرفة الإسلامية / المقالات',
       desc: 'مقالات وبحوث معمقة في مختلف فروع العلوم الإسلامية المعاصرة.',
+      href: '/articles',
       wrapperClass: 'bg-slate-50 border-slate-400 hover:shadow-slate-100',
       iconBg: 'bg-slate-300',
       icon: (
@@ -103,9 +110,10 @@ export default function HeroSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cardsData.map((card) => (
-            <div 
-              key={card.id} 
-              className={`flex flex-col items-center text-center p-8 rounded-2xl border-2 transition-all duration-300 transform hover:-translate-y-2 shadow-sm ${card.wrapperClass}`}
+            <Link 
+              key={card.id}
+              href={card.href}
+              className={`flex flex-col items-center text-center p-8 rounded-2xl border-2 transition-all duration-300 transform hover:-translate-y-2 shadow-sm cursor-pointer ${card.wrapperClass}`}
             >
               <div className={`w-20 h-20 flex items-center justify-center rounded-full mb-6 shadow-sm ${card.iconBg}`}>
                 {card.icon}
@@ -114,7 +122,7 @@ export default function HeroSection() {
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                 {card.desc}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
