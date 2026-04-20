@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
+import HeroSection from '../components/HeroSection';
+
 export default function TafsirPage() {
   return (
     <main className="min-h-screen bg-white">
